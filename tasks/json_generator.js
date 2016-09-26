@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 		}
 
 		try {
-			obj = JSON.parse(JSON.stringify(this.data.options));
+			obj = JSON.parse(JSON.stringify(obj));
 		} catch (e) {
 			grunt.log.error(e);
 			grunt.fail.warn("Error parsing json the data.", 3);
