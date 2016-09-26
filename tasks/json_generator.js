@@ -22,9 +22,15 @@ module.exports = function(grunt) {
 			grunt.fail.warn('Destination file is missing.', 3);
 		}
 
+		if (typeof this.data.options === 'function') {
+			obj = this.data.options();
+		} else {
+			obj = this.data.options;
+		}
+
 		try {
 			obj = JSON.parse(JSON.stringify(this.data.options));
-		} catch (e){
+		} catch (e) {
 			grunt.log.error(e);
 			grunt.fail.warn("Error parsing json the data.", 3);
 		}
